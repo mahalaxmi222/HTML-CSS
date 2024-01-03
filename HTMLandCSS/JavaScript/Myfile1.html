@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML and JavaScript Example</title>
+</head>
+<body>
+
+    <h1>Hello, World!</h1>
+
+    <p id="demo">Click the buttons to change this text.</p>
+
+    <label for="userInput">Enter text: </label>
+    <input type="text" id="userInput">
+
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="resetText()">Reset Text</button>
+
+    <script>
+        function changeText() {
+            var userInput = document.getElementById("userInput").value;
+            document.getElementById("demo").innerHTML = "Text changed to: " + userInput;
+        }
+
+        function resetText() {
+            document.getElementById("demo").innerHTML = "Click the buttons to change this text.";
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+
+</body>
+</html>

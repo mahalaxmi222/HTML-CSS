@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi Web Design Example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+            background-color: #666;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col {
+            flex: 1;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            nav a {
+                float: none;
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .col {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Web Design</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Welcome to My Website!</h2>
+            <p>This is my responsive web design.</p>
+        </section>
+
+        <section>
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+        </section>
+
+        <section>
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col">
+                    <h3>Service 1</h3>
+                    <p>Health</p>
+                </div>
+                <div class="col">
+                    <h3>Service 2</h3>
+                    <p>Eductaion</p>
+                </div>
+                <div class="col">
+                    <h3>Service 3</h3>
+                    <p>Sports</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Responsive Images</h2>
+            <img src="https://images.squarespace-cdn.com/content/v1/5eadf730551ecf3b8c3a04d3/1588471915220-SI5UO3NRE2L2EFSJ8679/My+First+Webpage_Bookcover.jpg?format=1000w" alt="Mahi image">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Responsive Web Design</p>
+    </footer>
+
+</body>
+</html>

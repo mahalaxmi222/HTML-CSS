@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi Responsive Website Layout</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 1em;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 1em;
+        }
+
+        section {
+            flex: 1;
+            margin: 0.5em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                flex-direction: column;
+            }
+
+            section {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mahi Responsive Website</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Section 1</h2>
+            <p>This is the content of section 1. It can include images, lists, or any other HTML elements.</p>
+        </section>
+
+        <section>
+            <h2>Section 2</h2>
+            <p>This is the content of section 2. You can add more sections as needed for your website.</p>
+        </section>
+
+        <section>
+            <h2>Section 3</h2>
+            <p>This is the content of section 3. Each section has a hover effect for better interactivity.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Advanced Responsive Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

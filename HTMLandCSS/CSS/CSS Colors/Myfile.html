@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Colors Demo</title>
+    <style>
+        /* Basic color using color names */
+        .color-name {
+            color: red;
+        }
+
+        /* Hexadecimal color representation */
+        .hex-color {
+            color: #00ff00; /* Green */
+            background-color: #0000ff; /* Blue */
+        }
+
+        /* RGB color representation */
+        .rgb-color {
+            color: rgb(255, 0, 255); /* Magenta */
+            background-color: rgb(255, 255, 0); /* Yellow */
+        }
+
+        /* RGBA color representation with alpha transparency */
+        .rgba-color {
+            color: rgba(0, 128, 255, 0.7); /* Semi-transparent blue */
+            background-color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+        }
+
+        /* HSL color representation */
+        .hsl-color {
+            color: hsl(120, 100%, 50%); /* Pure green */
+            background-color: hsl(0, 100%, 50%); /* Pure red */
+        }
+
+        /* HSLA color representation with alpha transparency */
+        .hsla-color {
+            color: hsla(240, 100%, 50%, 0.6); /* Semi-transparent blue */
+            background-color: hsla(60, 100%, 50%, 0.4); /* Semi-transparent yellow */
+        }
+
+        /* Transparent color */
+        .transparent-color {
+            color: transparent;
+            background-color: transparent;
+        }
+
+        /* Named colors */
+        .named-colors {
+            color: aqua;
+            background-color: coral;
+        }
+
+        /* Gradients */
+        .linear-gradient {
+            background: linear-gradient(to right, red, yellow);
+        }
+
+        .radial-gradient {
+            background: radial-gradient(circle, violet, yellow);
+        }
+
+        /* Using variables for colors */
+        :root {
+            --main-text-color: #333;
+            --main-bg-color: #f8f8f8;
+        }
+
+        .variable-color {
+            color: var(--main-text-color);
+            background-color: var(--main-bg-color);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="color-name">Color Name</h1>
+    <h1 class="hex-color">Hexadecimal Color</h1>
+    <h1 class="rgb-color">RGB Color</h1>
+    <h1 class="rgba-color">RGBA Color</h1>
+    <h1 class="hsl-color">HSL Color</h1>
+    <h1 class="hsla-color">HSLA Color</h1>
+    <h1 class="transparent-color">Transparent Color</h1>
+    <h1 class="named-colors">Named Colors</h1>
+    <h1 class="linear-gradient">Linear Gradient</h1>
+    <h1 class="radial-gradient">Radial Gradient</h1>
+    <h1 class="variable-color">Variable Colors</h1>
+</body>
+</html>

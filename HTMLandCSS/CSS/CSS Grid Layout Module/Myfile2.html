@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CSS Grid Layout</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Grid container with auto-sized columns and rows */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-sized columns with a minimum of 200px */
+            grid-template-rows: repeat(auto-fill, minmax(100px, 1fr)); /* Auto-sized rows with a minimum of 100px */
+            gap: 15px; /* Gap between grid items */
+            padding: 15px;
+        }
+
+        /* Grid items with variable heights */
+        .grid-item {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Spanning multiple columns and rows */
+        .wide-item {
+            grid-column: span 2; /* Spanning two columns */
+        }
+
+        .tall-item {
+            grid-row: span 2; /* Spanning two rows */
+        }
+
+        /* Naming lines for better control */
+        .grid-container-named-lines {
+            display: grid;
+            grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr;
+            grid-template-rows: [row1] 100px [row2] 200px [row3] 150px;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .item-named-lines {
+            grid-column: col2; /* Placing the item in the second column */
+            grid-row: row2 / row3; /* Placing the item between the second and third rows */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Auto-sized Columns and Rows</h2>
+
+    <!-- Grid container with auto-sized columns and rows -->
+    <div class="grid-container">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item wide-item">Item 2 (Wide)</div>
+        <div class="grid-item tall-item">Item 3 (Tall)</div>
+        <div class="grid-item">Item 4</div>
+        <div class="grid-item">Item 5</div>
+        <div class="grid-item">Item 6</div>
+        <div class="grid-item">Item 7</div>
+        <div class="grid-item">Item 8</div>
+        <div class="grid-item">Item 9</div>
+    </div>
+
+    <h2>Naming Lines for Better Control</h2>
+
+    <!-- Grid container with named lines -->
+    <div class="grid-container-named-lines">
+        <div class="grid-item">Item A</div>
+        <div class="grid-item item-named-lines">Item B (Named Lines)</div>
+        <div class="grid-item">Item C</div>
+        <div class="grid-item">Item D</div>
+        <div class="grid-item">Item E</div>
+        <div class="grid-item">Item F</div>
+    </div>
+
+</body>
+</html>

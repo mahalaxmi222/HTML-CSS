@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi HTML JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HTML Form -->
+<form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <span id="nameError" class="error-message"></span>
+    
+    <br>
+
+    <label for="language">Favorite Programming Language:</label>
+    <select id="language" name="language" required>
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="csharp">C#</option>
+        <option value="cpp">C++</option>
+    </select>
+    
+    <br>
+
+    <button type="button" onclick="submitForm()">Submit</button>
+</form>
+
+<!-- Display Section -->
+<div id="displaySection" style="display: none; margin-top: 20px;">
+    <h2>Submitted Information:</h2>
+    <p><strong>Name:</strong> <span id="submittedName"></span></p>
+    <p><strong>Favorite Language:</strong> <span id="submittedLanguage"></span></p>
+</div>
+
+<!-- JavaScript Section -->
+<script>
+    // Check for saved preferences in local storage
+    window.onload = function() {
+        var savedName = localStorage.getItem("name");
+        var savedLanguage = localStorage.getItem("language");
+
+        if (savedName && savedLanguage) {
+            document.getElementById("name").value = savedName;
+            document.getElementById("language").value = savedLanguage;
+        }
+    };
+
+    function submitForm() {
+        // Retrieve form values
+        var name = document.getElementById("name").value;
+        var language = document.getElementById("language").value;
+
+        // Validate name input
+        var nameError = document.getElementById("nameError");
+        nameError.innerText = "";
+        if (!name.trim()) {
+            nameError.innerText = "Name is required.";
+            return;
+        }
+
+        // Save preferences to local storage
+        localStorage.setItem("name", name);
+        localStorage.setItem("language", language);
+
+        // Display submitted information
+        document.getElementById("submittedName").innerText = name;
+        document.getElementById("submittedLanguage").innerText = language;
+
+        // Show the display section
+        document.getElementById("displaySection").style.display = "block";
+
+        // Simulate asynchronous operation (e.g., fetching data from an API)
+        setTimeout(function() {
+            alert("Asynchronous operation completed!");
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>

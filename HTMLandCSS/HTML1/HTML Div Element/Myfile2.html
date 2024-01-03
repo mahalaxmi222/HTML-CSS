@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi </title>
+    <style>
+        /* CSS styling for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            border: 2px solid #333;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .content {
+            margin-top: 10px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex-item {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .responsive-column {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        @media only screen and (min-width: 600px) {
+            /* Responsive design for larger screens */
+            .responsive-column {
+                width: 48%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1> HTML Div Element </h1>
+        </div>
+        
+        <div class="content">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h2>Flex Item 1</h2>
+                    <p>This is a flex item with equal width in a flex container.</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Flex Item 2</h2>
+                    <p>This is another flex item in the same flex container.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="responsive-column">
+                <h2>Responsive Column 1</h2>
+                <p>This column adjusts its width based on the screen size.</p>
+            </div>
+
+            <div class="responsive-column">
+                <h2>Responsive Column 2</h2>
+                <p>This is another responsive column in the layout.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

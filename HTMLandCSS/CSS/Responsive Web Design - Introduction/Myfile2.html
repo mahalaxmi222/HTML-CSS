@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply a simple style to the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Set max-width for better readability on larger screens */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Style the navigation menu */
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        /* Create a simple two-column layout */
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .main article {
+            flex: 1;
+            margin: 10px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive media queries */
+        @media only screen and (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .main article {
+                flex: 1 100%;
+            }
+        }
+
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Web Design</h1>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="main">
+            <article>
+                <h2>Welcome to our website!</h2>
+                <p>This is a simple example of a responsive web design using HTML and CSS.</p>
+                <img src="https://th.bing.com/th/id/OIP.KP9Z7weGF7vJ2qaLYWsMqwHaFj?rs=1&pid=ImgDetMain" alt="Desktop Image">
+            </article>
+
+            <article>
+                <h2>About Us</h2>
+                <p>We are a web design company dedicated to creating responsive and user-friendly websites.</p>
+                <img src="https://th.bing.com/th/id/R.971539a0aa32fa84c5251f11555abb09?rik=8XMfNJ5Rf7of2Q&riu=http%3a%2f%2fwww.bugtreat.com%2fblog%2fwp-content%2fuploads%2f2012%2f07%2fcss-logo.jpg&ehk=RN2KV5CIEchJ2z00YEqF9RGtzgxp6MoVngFLA02X1Uk%3d&risl=&pid=ImgRaw&r=0" alt="Team Image">
+            </article>
+        </div>
+    </div>
+</body>
+</html>

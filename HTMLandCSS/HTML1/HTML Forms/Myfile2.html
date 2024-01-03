@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi HTML Forms</title>
+    <style>
+       
+    </style>
+</head>
+<br> <br>
+<body>
+
+    <h2> Mahi HTML Form </h2>
+
+    <form action="submit_form.php" method="post">
+        <!-- Text Input with Placeholder and Pattern -->
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="user@example.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+    
+        <!-- Password Input with Confirmation -->
+        <label for="new-password">New Password:</label>
+        <input type="password" id="new-password" name="new-password" required>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <br> <br>
+        <!-- Multiple Select -->
+        <label for="skills">Skills (Hold Ctrl/Cmd to select multiple):</label>
+        <select id="skills" name="skills[]" multiple>
+            <option value="java">Java</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javaScript">JavaScript</option>
+            <option value="python">Python</option>
+        </select>
+        <br> <br>
+        <!-- Hidden Input -->
+        <input type="hidden" id="hidden-field" name="hidden-field" value="some-hidden-value">
+
+        <!-- Fieldset and Legend for Grouping -->
+        <fieldset>
+            <legend>Contact Information</legend>
+            <!-- Tel Input -->
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+        </fieldset>
+        <br> <br>
+        <!-- Disabled Input -->
+        <label for="disabled-input">Disabled Input:</label>
+        <input type="text" id="disabled-input" name="disabled-input" value="This is disabled" disabled>
+
+        <!-- Autocomplete Attribute -->
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" autocomplete="street-address">
+
+        <br> <br>
+         <!-- Datalist for Autocomplete Suggestions -->
+        <label for="browser">Favorite Browser:</label>
+        <input list="browsers" id="browser" name="browser">
+        <datalist id="browsers">
+            <option value="Google">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Ucbrowser">
+            <option value="Opera">
+        </datalist>
+
+        <!-- CSS Styling for Submit Button -->
+        <input type="submit" value="Submit" style="background-color: #3498db; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
+    </form>
+
+</body>
+</html>

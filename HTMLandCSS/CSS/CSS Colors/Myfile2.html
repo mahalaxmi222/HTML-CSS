@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extended CSS Colors </title>
+    <style>
+        /* Text Shadow */
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Box Shadow */
+        .box-shadow {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Border Color */
+        .border-color {
+            border: 2px solid #008080; /* Teal */
+        }
+
+        /* Background Image with Color Overlay */
+        .background-image-overlay {
+            background-image: url('your-image-url.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+        }
+
+        /* CSS Filter Effects */
+        .filter-effects {
+            filter: grayscale(50%) brightness(120%) contrast(90%) blur(2px);
+        }
+
+        /* Custom Color Palette */
+        .custom-palette {
+            --primary-color: #3498db; /* Blue */
+            --secondary-color: #e74c3c; /* Red */
+
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-shadow">Text Shadow</h1>
+    <div class="box-shadow">Box Shadow</div>
+    <div class="border-color">Border Color</div>
+    <div class="background-image-overlay">Background Image with Color Overlay</div>
+    <div class="filter-effects">Filter Effects</div>
+    <div class="custom-palette">Custom Color Palette</div>
+</body>
+</html>

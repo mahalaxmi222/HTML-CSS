@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout Example</title>
+    <style>
+        /* Define the grid container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+            grid-template-rows: 100px 200px 150px; /* Three rows with specified heights */
+            gap: 10px; /* Gap between grid items */
+            grid-template-areas:
+                "header header header"
+                "sidebar main content"
+                "footer footer footer"; /* Define named areas for the grid */
+        }
+
+        /* Style for grid items */
+        .grid-item {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Assign items to grid areas */
+        .header {
+            grid-area: header;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+        .main {
+            grid-area: main;
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+
+        /* Responsive layout using media query */
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout for small screens */
+                grid-template-rows: auto; /* Auto-sized rows */
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "sidebar"
+                    "content"
+                    "footer";
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Grid container -->
+    <div class="grid-container">
+        <!-- Grid items -->
+        <div class="grid-item header">Header</div>
+        <div class="grid-item sidebar">Sidebar</div>
+        <div class="grid-item main">Main Content</div>
+        <div class="grid-item content">Additional Content</div>
+        <div class="grid-item footer">Footer</div>
+    </div>
+
+</body>
+</html>

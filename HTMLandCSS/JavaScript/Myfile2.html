@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mahi </title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        label {
+            margin-right: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: #FF0000;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hello, World!</h1>
+
+    <p id="demo">Click the buttons to change this text.</p>
+
+    <form onsubmit="return validateForm()">
+        <label for="userInput">Enter text: </label>
+        <input type="text" id="userInput">
+        <button type="submit">Change Text</button>
+        <div class="error-message" id="errorMessage"></div>
+    </form>
+
+    <button onclick="resetText()">Reset Text</button>
+    <button onclick="createNewParagraph()">Create New Paragraph</button>
+    <button onclick="removeLastParagraph()">Remove Last Paragraph</button>
+
+    <script>
+        function changeText() {
+            var userInput = document.getElementById("userInput").value;
+            document.getElementById("demo").innerHTML = "Text changed to: " + userInput;
+        }
+
+        function resetText() {
+            document.getElementById("demo").innerHTML = "Click the buttons to change this text.";
+            document.getElementById("userInput").value = "";
+            clearErrorMessage();
+        }
+
+        function createNewParagraph() {
+            var newParagraph = document.createElement("p");
+            var timestamp = new Date().toLocaleTimeString();
+            newParagraph.innerHTML = "New paragraph created at: " + timestamp;
+            document.body.appendChild(newParagraph);
+        }
+
+        function removeLastParagraph() {
+            var paragraphs = document.querySelectorAll("p");
+            var lastParagraph = paragraphs[paragraphs.length - 1];
+            if (lastParagraph) {
+                document.body.removeChild(lastParagraph);
+            }
+        }
+
+        function validateForm() {
+            var userInput = document.getElementById("userInput").value;
+            var errorMessageElement = document.getElementById("errorMessage");
+
+            if (userInput.trim() === "") {
+                errorMessageElement.innerHTML = "Please enter text.";
+                return false;
+            } else {
+                errorMessageElement.innerHTML = "";
+                changeText();
+                return false; // Prevent form submission to allow further control
+            }
+        }
+
+        function clearErrorMessage() {
+            document.getElementById("errorMessage").innerHTML = "";
+        }
+    </script>
+
+</body>
+</html>
