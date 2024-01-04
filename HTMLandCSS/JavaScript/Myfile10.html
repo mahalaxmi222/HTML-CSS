@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker with JavaScript</title>
+    <style>
+        #expenseForm {
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            border: 1px solid #ddd;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Expense Tracker with JavaScript</h1>
+
+    <form id="expenseForm">
+        <label for="expenseAmount">Enter Daily Expense:</label>
+        <input type="number" id="expenseAmount" required>
+        <button type="submit">Add Expense</button>
+    </form>
+
+    <canvas id="expenseChart"></canvas>
+
+    <script>
+        const expenseForm = document.getElementById('expenseForm');
+        const expenseAmountInput = document.getElementById('expenseAmount');
+        const expenseChartCanvas = document.getElementById('expenseChart').getContext('2d');
+        let dailyExpenses = [];
+
+        // Event listener for form submission
+        expenseForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            addExpense(parseFloat(expenseAmountInput.value));
+        });
+
+        // Function to add a new expense
+        function addExpense(amount) {
+            if (isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid positive number for the expense amount.');
+                return;
+            }
+
+            // Add the expense to the array
+            dailyExpenses.push(amount);
+
+            // Update the chart
+            updateExpenseChart();
+
+            // Clear the input field
+            expenseAmountInput.value = '';
+        }
+
+        // Function to update the expense chart
+        function updateExpenseChart() {
+            // Clear previous chart
+            expenseChartCanvas.clearRect(0, 0, expenseChartCanvas.canvas.width, expenseChartCanvas.canvas.height);
+
+            // Draw a bar chart
+            dailyExpenses.forEach((expense, index) => {
+                const barWidth = 30;
+                const barHeight = expense * 5; // Scale for better visualization
+                const x = index * (barWidth + 10);
+                const y = expenseChartCanvas.canvas.height - barHeight;
+
+                expenseChartCanvas.fillStyle = 'blue';
+                expenseChartCanvas.fillRect(x, y, barWidth, barHeight);
+            });
+
+            // Display total expenses
+            const totalExpenses = dailyExpenses.reduce((total, expense) => total + expense, 0);
+            alert(`Total Expenses: $${totalExpenses.toFixed(2)}`);
+        }
+    </script>
+
+</body>
+</html>

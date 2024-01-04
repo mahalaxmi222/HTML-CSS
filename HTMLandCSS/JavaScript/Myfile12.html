@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager with Drag-and-Drop</title>
+    <style>
+        #taskList {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .task {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Task Manager with Drag-and-Drop</h1>
+
+    <ul id="taskList" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+
+    <script>
+        const taskList = document.getElementById('taskList');
+
+        // Event listener for form submission
+        document.addEventListener('DOMContentLoaded', loadTasksFromLocalStorage);
+
+        // Event listener for form submission
+        document.addEventListener('DOMContentLoaded', loadTasksFromLocalStorage);
+
+        // Function to add a new task
+        function addTask(taskText) {
+            // Create a new list item
+            const taskItem = document.createElement('li');
+            taskItem.classList.add('task');
+            taskItem.textContent = taskText;
+
+            // Make the task item draggable
+            taskItem.draggable = true;
+            taskItem.addEventListener('dragstart', (event) => {
+                event.dataTransfer.setData('text/plain', taskText);
+            });
+
+            // Append the task to the list
+            taskList.appendChild(taskItem);
+
+            // Save tasks to local storage
+            saveTasksToLocalStorage();
+        }
+
+        // Function to allow dropping on the task list
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        // Function to handle dropping a task
+        function drop(event) {
+            event.preventDefault();
+            const taskText = event.dataTransfer.getData('text/plain');
+            addTask(taskText);
+        }
+
+        // Function to save tasks to local storage
+        function saveTasksToLocalStorage() {
+            const tasks = Array.from(taskList.children).map(taskItem => taskItem.textContent);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Function to load tasks from local storage
+        function loadTasksFromLocalStorage() {
+            const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            storedTasks.forEach(taskText => {
+                addTaskFromLocalStorage(taskText);
+            });
+        }
+
+        // Function to add a task from local storage
+        function addTaskFromLocalStorage(taskText) {
+            // Create a new list item
+            const taskItem = document.createElement('li');
+            taskItem.classList.add('task');
+            taskItem.textContent = taskText;
+
+            // Make the task item draggable
+            taskItem.draggable = true;
+            taskItem.addEventListener('dragstart', (event) => {
+                event.dataTransfer.setData('text/plain', taskText);
+            });
+
+            // Append the task to the list
+            taskList.appendChild(taskItem);
+        }
+    </script>
+
+</body>
+</html>

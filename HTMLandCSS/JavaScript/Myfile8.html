@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi Application</title>
+    <style>
+        .error {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Application</h1>
+
+    <form onsubmit="processForm(); return false;">
+        <label for="username">Enter your username:</label>
+        <input type="text" id="username" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="error" class="error"></p>
+
+    <ul id="userList"></ul>
+
+    <script>
+        function processForm() {
+            // Get the input value
+            var usernameInput = document.getElementById("username");
+            var username = usernameInput.value.trim();
+
+            // Validate the input
+            if (username === "") {
+                showError("Username cannot be empty.");
+                return;
+            }
+
+            // Clear previous error messages
+            clearError();
+
+            // Create a new list item with the username
+            var userList = document.getElementById("userList");
+            var listItem = document.createElement("li");
+            listItem.textContent = username;
+            userList.appendChild(listItem);
+
+            // Clear the input field for the next entry
+            usernameInput.value = "";
+        }
+
+        function showError(message) {
+            var errorElement = document.getElementById("error");
+            errorElement.textContent = message;
+        }
+
+        function clearError() {
+            var errorElement = document.getElementById("error");
+            errorElement.textContent = "";
+        }
+    </script>
+
+</body>
+</html>

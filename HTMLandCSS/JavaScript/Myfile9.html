@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahi to do list</title>
+    <style>
+        #taskList {
+            list-style: none;
+            padding: 0;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+        }
+
+        .task.completed {
+            background-color: #d3ffd3;
+        }
+
+        .deleteButton {
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Interactive To-Do List with JavaScript</h1>
+
+    <form id="taskForm">
+        <label for="taskInput">Add Task:</label>
+        <input type="text" id="taskInput" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskForm = document.getElementById('taskForm');
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
+
+        // Event listener for form submission
+        taskForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            addTask(taskInput.value);
+        });
+
+        // Event delegation for task completion and deletion
+        taskList.addEventListener('click', function(event) {
+            const target = event.target;
+
+            if (target.classList.contains('deleteButton')) {
+                deleteTask(target.parentElement);
+            } else if (target.tagName === 'LI') {
+                toggleTaskCompletion(target);
+            }
+        });
+
+        // Function to add a new task
+        function addTask(taskText) {
+            // Create a new list item
+            const taskItem = document.createElement('li');
+            taskItem.classList.add('task');
+            taskItem.innerHTML = `
+                <span>${taskText}</span>
+                <button class="deleteButton">Delete</button>
+            `;
+
+            // Append the task to the list
+            taskList.appendChild(taskItem);
+
+            // Save tasks to local storage
+            saveTasksToLocalStorage();
+
+            // Clear the input field
+            taskInput.value = '';
+        }
+
+        // Function to toggle task completion
+        function toggleTaskCompletion(taskItem) {
+            taskItem.classList.toggle('completed');
+
+            // Save tasks to local storage
+            saveTasksToLocalStorage();
+        }
+
+        // Function to delete a task
+        function deleteTask(taskItem) {
+            taskItem.remove();
+
+            // Save tasks to local storage
+            saveTasksToLocalStorage();
+        }
+
+        // Function to save tasks to local storage
+        function saveTasksToLocalStorage() {
+            const tasks = Array.from(taskList.children).map(taskItem => {
+                return {
+                    text: taskItem.querySelector('span').textContent,
+                    completed: taskItem.classList.contains('completed')
+                };
+            });
+
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Function to load tasks from local storage
+        function loadTasksFromLocalStorage() {
+            const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            storedTasks.forEach(task => {
+                addTaskFromLocalStorage(task.text, task.completed);
+            });
+        }
+
+        // Function to add a task from local storage
+        function addTaskFromLocalStorage(taskText, completed) {
+            const taskItem = document.createElement('li');
+            taskItem.classList.add('task', completed ? 'completed' : '');
+            taskItem.innerHTML = `
+                <span>${taskText}</span>
+                <button class="deleteButton">Delete</button>
+            `;
+
+            taskList.appendChild(taskItem);
+        }
+
+        // Load tasks from local storage when the page loads
+        document.addEventListener('DOMContentLoaded', loadTasksFromLocalStorage);
+    </script>
+
+</body>
+</html>
